@@ -1,35 +1,34 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import React from 'react';
+import Navbar from './components/layout/Navbar';
+import Hero from './components/section/Hero';
+import ProfileCard from './components/product/ProfileCard';
+import './App.css';
 
 function App() {
-  const [count, setCount] = useState(0)
+  // Datos de la tarjeta de perfil
+  const profileData = {
+    name: "Sophie Bennett",
+    description: "A Product Designer focused on intuitive user experiences.",
+    imageUrl: "/profile.jpg",
+    followers: 99999,
+    likes: 12345,
+    isVerified: true
+  };
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <div className="App">
+      <Navbar />
+      <Hero />
+      <ProfileCard 
+        name={profileData.name}
+        description={profileData.description}
+        imageUrl={profileData.imageUrl}
+        followers={profileData.followers}
+        likes={profileData.likes}
+        isVerified={profileData.isVerified}
+      />
+    </div>
+  );
 }
 
-export default App
+export default App;
