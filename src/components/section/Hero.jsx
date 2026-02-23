@@ -1,11 +1,11 @@
 import React from 'react';
 
-const Hero = () => {
+const Hero = ({ title = 'Bienvenidos', buttonText = 'Iniciar', onStart }) => {
   return (
     <section>
       <div>
-        <h1>Bienvenidos</h1>
-        <button>Iniciar</button>
+        <h1>{title}</h1>
+        <button onClick={onStart}>{buttonText}</button>
       </div>
     </section>
   );
